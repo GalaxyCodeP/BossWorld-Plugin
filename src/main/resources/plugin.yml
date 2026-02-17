@@ -1,0 +1,13 @@
+name: BossWorld
+version: 1.0-SNAPSHOT
+main: me.galax.bossworld.BossWorld
+api-version: '1.21'
+depend: [MythicMobs]
+softdepend: [CMI]
+commands:
+  bossworld:
+    description: Main command for BossWorld
+permissions:
+  bossworld.admin:
+    description: Admin permission for BossWorld
+    default: op

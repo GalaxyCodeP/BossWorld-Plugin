@@ -1,0 +1,65 @@
+# BossWorld Configuration
+
+# List of Bosses
+bosses:
+  default:
+    mythicmob-id: "SkeletalKing"
+    display-name: "Skeletal King"
+    spawn-interval: 3600 # 1 hour
+    announcement-times:
+      - 600 # 10 minutes
+      - 300 # 5 minutes
+    boss-image-url: "https://example.com/skeletal-king.png" # Discord webhook image
+  boss2:
+    mythicmob-id: "SecondBoss" # CHANGE THIS to your second boss internal name
+    display-name: "Ancient Dragon"
+    spawn-interval: 10800 # 3 hours
+    announcement-times:
+      - 3600 # 1 hour
+      - 1800 # 30 mins
+      - 600 # 10 mins
+    boss-image-url: "https://example.com/ancient-dragon.png" # Discord webhook image
+
+# Discord Webhook settings
+discord-webhook:
+  enabled: false
+  url: "YOUR_WEBHOOK_URL_HERE"
+  warning-message: "📢 บอส **%boss%** กำลังจะเกิดในอีก **%time%** นาที!"
+  spawn-message: "🔥 บอส **%boss%** เกิดแล้ว! พิมพ์คำสั่ง `/bossworld %boss_id%` เพื่อวาร์ปไปหาบอส!"
+
+# Reward requirements
+reward-requirements:
+  minimum-damage-percent: 10.0
+  must-be-in-boss-world: true
+
+# Anti-Cheat settings during boss fight
+anti-cheat:
+  enabled: true
+  fight-radius: 50.0
+  blocked-commands:
+    - "/fly"
+    - "/god"
+    - "/repair"
+    - "/cmi fly"
+    - "/cmi god"
+    - "/cmi repair"
+    - "/heal"
+    - "/cmi heal"
+    - "/feed"
+    - "/cmi feed"
+  messages:
+    command-blocked: "&cไม่อนุญาตให้ใช้คำสั่งนี้ในพื้นที่บอส!"
+    fly-disabled: "&cโหมดบินถูกปิดใช้งานเนื่องจากคุณเข้าสู่พื้นที่บอส!"
+    god-disabled: "&cโหมดอมตะถูกปิดใช้งานเนื่องจากคุณเข้าสู่พื้นที่บอส!"
+
+messages:
+  prefix: "&8[&bBossWorld&8] &r"
+  boss-warning: "&eบอส &6%boss% &eกำลังจะเกิดในอีก &b%time% &eนาที!"
+  boss-spawned: "&eบอส &6%boss% &eเกิดแล้ว! ใช้คำสั่ง &b/bossworld %boss_id% &eเพื่อวาร์ปไปหาบอส!"
+  boss-killed: "&eบอส &6%boss% &eถูกกำจัดแล้ว!"
+  top-damage-header: "&6=== อันดับดาเมจสูงสุด 3 อันดับ (%boss%) ==="
+  top-damage-format: "&bอันดับที่ %rank%: &e%player% &7- &c%damage% ดาเมจ"
+  no-location: "&cยังไม่มีการตั้งค่าตำแหน่งเกิดบอสสำหรับ %boss%!"
+  teleport-success: "&aวาร์ปไปยังตำแหน่งบอส %boss% แล้ว!"
+  insufficient-damage: "&cคุณทำดาเมจไม่ถึง %min%% จึงไม่ได้รับรางวัล (คุณทำ %actual%%)"
+  wrong-world: "&cคุณไม่ได้อยู่ในโลกที่บอสอยู่ จึงไม่ได้รับรางวัล!"
